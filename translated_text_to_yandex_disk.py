@@ -17,7 +17,9 @@ def to_disk(file_path):
     # print(response.headers)
     json_ = response.json()
     # print(json_)
-    resp = requests.put(json_['href'])
+    print(json_)
+    files = {'file':open(file_path, 'r', encoding='utf-8')}
+    resp = requests.put(json_['href'], files=files)
     if resp.status_code == 201:
         print('Файл успешно загружен')
     else:

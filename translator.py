@@ -34,6 +34,7 @@ def translate_it(first_file_path, end_file_path, from_lang, to_lang='ru'):
     }
 
     response = requests.get(URL, params=params)
+    print(f'Запрос к URL для {first_file_path}')
     json_ = response.json()
     with open(end_file_path, 'a') as end_file:
         end_file.write(f'Переведенный текст файла {first_file_path}\n')
